@@ -1,0 +1,194 @@
+{
+  "objects": [],
+  "usingPatchesV2": true,
+  "version": {
+    "dev": 0,
+    "patch": 0,
+    "prod": 169
+  },
+  "visual_programming": {
+    "connections": [
+      {
+        "fromPatch": "port_forwarding_patch_model:129887-3abd62be-9adb-4c6a-92df-13ff68d66fd4",
+        "fromPort": "101",
+        "identifier": "patch_connection_model:130175-3abd62be-9adb-4c6a-92df-13ff68d66fd4",
+        "modelName": "patch_connection_model",
+        "toPatch": "template_patch_model:130031-3abd62be-9adb-4c6a-92df-13ff68d66fd4",
+        "toPort": "1"
+      },
+      {
+        "fromPatch": "template_patch_model:130031-3abd62be-9adb-4c6a-92df-13ff68d66fd4",
+        "fromPort": "100",
+        "identifier": "patch_connection_model:130177-3abd62be-9adb-4c6a-92df-13ff68d66fd4",
+        "modelName": "patch_connection_model",
+        "toPatch": "template_patch_model:129975-3abd62be-9adb-4c6a-92df-13ff68d66fd4",
+        "toPort": "1"
+      },
+      {
+        "fromPatch": "template_patch_model:129975-3abd62be-9adb-4c6a-92df-13ff68d66fd4",
+        "fromPort": "100",
+        "identifier": "patch_connection_model:130179-3abd62be-9adb-4c6a-92df-13ff68d66fd4",
+        "modelName": "patch_connection_model",
+        "toPatch": "template_patch_model:130087-3abd62be-9adb-4c6a-92df-13ff68d66fd4",
+        "toPort": "1"
+      },
+      {
+        "fromPatch": "template_patch_model:130087-3abd62be-9adb-4c6a-92df-13ff68d66fd4",
+        "fromPort": "100",
+        "identifier": "patch_connection_model:130181-3abd62be-9adb-4c6a-92df-13ff68d66fd4",
+        "modelName": "patch_connection_model",
+        "toPatch": "port_forwarding_patch_model:129931-3abd62be-9adb-4c6a-92df-13ff68d66fd4",
+        "toPort": "1001"
+      }
+    ],
+    "patches": [
+      {
+        "groupDescription": "Converts RGB to monochrome using the equation L = R*0.299 + G*0.587 + B*0.114.",
+        "groupName": "RGB to B&W",
+        "identifier": "patch_group_model:129871-3abd62be-9adb-4c6a-92df-13ff68d66fd4",
+        "inputPorts": [
+          "patch_input_port_model:130143-3abd62be-9adb-4c6a-92df-13ff68d66fd4"
+        ],
+        "modelName": "patch_group_model",
+        "name": "RGB to B&W",
+        "outputPorts": [
+          "patch_output_port_model:130157-3abd62be-9adb-4c6a-92df-13ff68d66fd4"
+        ],
+        "position": [
+          -1751.784912109375,
+          -601.4205322265625
+        ],
+        "subpatches": [
+          "port_forwarding_patch_model:129887-3abd62be-9adb-4c6a-92df-13ff68d66fd4",
+          "port_forwarding_patch_model:129931-3abd62be-9adb-4c6a-92df-13ff68d66fd4",
+          "template_patch_model:129975-3abd62be-9adb-4c6a-92df-13ff68d66fd4",
+          "template_patch_model:130031-3abd62be-9adb-4c6a-92df-13ff68d66fd4",
+          "template_patch_model:130087-3abd62be-9adb-4c6a-92df-13ff68d66fd4"
+        ],
+        "values": []
+      },
+      {
+        "identifier": "port_forwarding_patch_model:129887-3abd62be-9adb-4c6a-92df-13ff68d66fd4",
+        "modelName": "port_forwarding_patch_model",
+        "name": "Texture",
+        "position": [
+          -368.82128910986637,
+          -126.71679509108071
+        ],
+        "values": []
+      },
+      {
+        "identifier": "port_forwarding_patch_model:129931-3abd62be-9adb-4c6a-92df-13ff68d66fd4",
+        "modelName": "port_forwarding_patch_model",
+        "name": "Output",
+        "position": [
+          494.4030669835487,
+          -136.83482181620036
+        ],
+        "values": []
+      },
+      {
+        "identifier": "template_patch_model:129975-3abd62be-9adb-4c6a-92df-13ff68d66fd4",
+        "modelName": "template_patch_model",
+        "name": "Dot Product",
+        "position": [
+          -4.218749713618308,
+          -144.43066404118144
+        ],
+        "templateId": "builtin.mathDot",
+        "values": [
+          {
+            "port": "2",
+            "value": {
+              "t": "vec3",
+              "v": [
+                0.29899999499320984,
+                0.5870000123977661,
+                0.11400000005960464
+              ]
+            }
+          }
+        ],
+        "variantInfo": "vec3"
+      },
+      {
+        "identifier": "template_patch_model:130031-3abd62be-9adb-4c6a-92df-13ff68d66fd4",
+        "modelName": "template_patch_model",
+        "name": "Swizzle",
+        "position": [
+          -199.57421973982127,
+          -148.04980429932766
+        ],
+        "templateId": "builtin.shaders.vectorSwizzler",
+        "values": [
+          {
+            "port": "2",
+            "value": {
+              "t": "string",
+              "v": "rgb"
+            }
+          }
+        ]
+      },
+      {
+        "identifier": "template_patch_model:130087-3abd62be-9adb-4c6a-92df-13ff68d66fd4",
+        "modelName": "template_patch_model",
+        "name": "Swizzle",
+        "position": [
+          291.3076175554452,
+          -140.04003807842673
+        ],
+        "templateId": "builtin.shaders.vectorSwizzler",
+        "values": [
+          {
+            "port": "2",
+            "value": {
+              "t": "string",
+              "v": "xxx1"
+            }
+          }
+        ]
+      }
+    ],
+    "ports": [
+      {
+        "defaultValue": {
+          "t": "vec4",
+          "v": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "forwardingPatch": "port_forwarding_patch_model:129887-3abd62be-9adb-4c6a-92df-13ff68d66fd4",
+        "identifier": "patch_input_port_model:130143-3abd62be-9adb-4c6a-92df-13ff68d66fd4",
+        "modelName": "patch_input_port_model",
+        "portDescription": "",
+        "portName": "Texture",
+        "portTag": "101",
+        "portType": "color",
+        "widgetStyle": "default"
+      },
+      {
+        "defaultValue": {
+          "t": "vec4",
+          "v": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "forwardingPatch": "port_forwarding_patch_model:129931-3abd62be-9adb-4c6a-92df-13ff68d66fd4",
+        "identifier": "patch_output_port_model:130157-3abd62be-9adb-4c6a-92df-13ff68d66fd4",
+        "modelName": "patch_output_port_model",
+        "portDescription": "",
+        "portName": "Output",
+        "portTag": "1001",
+        "portType": "color",
+        "widgetStyle": "default"
+      }
+    ]
+  }
+}
